@@ -19,4 +19,9 @@ export class WeatherComponent implements OnInit {
     );
   }
 
+  // TODO: send form query to API
+  sendToAPIXU(formValues) {
+    console.log(formValues)
+  }
+
 }
