@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApixuService } from '../apixu.service';
 
 @Component({
@@ -9,13 +9,14 @@ import { ApixuService } from '../apixu.service';
 })
 
 export class WeatherComponent implements OnInit {
-  
+
   public weatherSearchForm: FormGroup;
+  public weatherData: any;
 
   constructor(
     private formBuilder: FormBuilder,
-    private apixuService: ApixuService  
-    ) {}
+    private apixuService: ApixuService
+  ) { }
 
   ngOnInit() {
     this.weatherSearchForm = this.formBuilder.group(
@@ -28,8 +29,9 @@ export class WeatherComponent implements OnInit {
   // TODO: send form query to API
   sendToAPIXU(formValues) {
     this.apixuService
-    .getWeather(formValues.location)
-    .subscribe(data => console.log(data));
+      .getWeather(formValues.location)
+      .subscribe(data => this.weatherData = data)
+    console.log(this.weatherData);
   }
 
 }
