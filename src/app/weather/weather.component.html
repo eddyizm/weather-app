@@ -21,12 +21,11 @@
       </form>
     </div>
     <div class="col-md-6">
-        <h3 class="text-center my-4">Weather Details:</h3>
-        <p class="text-center"> <img src="{{ this.weatherData?.current.weather_icons[0] }}" class="img-fluid" alt="Weather image"> </p>
-        <p class="text-center">Current weather conditions: {{ this.weatherData?.current.weather_descriptions[0] }} </p>
-        <p class="text-center">Temperature (Celsius): {{this.weatherData?.current.temperature}}</p>
-        <p class="text-center">Wind: {{this.weatherData?.current.wind_speed}}{{this.weatherData?.current.wind_dir}}   </p>
-        <p class="text-center">Location Searched: {{this.weatherData?.location.name}}, {{this.weatherData?.location.country}} </p>
+        <h3 class="text-center my-4">{{this.weatherData?.name}}, {{this.weatherData?.sys.country}}</h3>
+        <p class="text-center"> <img src="https://openweathermap.org/img/w/{{this.weatherData?.weather[0].icon}}.png" class="img-fluid" alt="Weather image"> </p>
+        <p class="text-center">Current weather conditions: {{ this.weatherData?.weather[0].description}} </p>
+        <p class="text-center">Temperature (F): {{this.weatherData?.main.temp}}</p>
+        <p class="text-center">Humidity: {{this.weatherData?.main.humidity}}</p>
       </div>
       </div>  
 </div>
