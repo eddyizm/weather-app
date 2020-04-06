@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cloudwrench-70124": {
+      "hosting": {
+        "weather-app": [
+          "cloudwrench-70124"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cloudwrench-70124"
+  }
+}
