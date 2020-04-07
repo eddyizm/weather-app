@@ -9,11 +9,13 @@ import { allAppRoutes } from './routes';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApixuService } from './apixu.service';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherComponent
+    WeatherComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,7 @@ import { ApixuService } from './apixu.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ApixuService],
+  providers: [ApixuService, SpinnerComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

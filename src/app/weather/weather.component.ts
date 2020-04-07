@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApixuService } from '../apixu.service';
+import { SpinnerComponent } from '../spinner/spinner.component';
 
 @Component({
   selector: 'app-weather',
@@ -12,10 +13,12 @@ export class WeatherComponent implements OnInit {
 
   public weatherSearchForm: FormGroup;
   public weatherData: any;
+  public isLoading = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private apixuService: ApixuService
+    private apixuService: ApixuService,
+    private spinner: SpinnerComponent
   ) { }
 
   ngOnInit() {
@@ -26,12 +29,17 @@ export class WeatherComponent implements OnInit {
     );
   }
 
-  // TODO: send form query to API
   sendToAPIXU(formValues) {
+    console.log('loading data!');
+    this.isLoading = true;
     this.apixuService
       .getWeather(formValues.location)
       .subscribe(data => this.weatherData = data)
     console.log(this.weatherData);
+    // reset form
+    this.weatherSearchForm.markAsPristine();
+    this.weatherSearchForm.reset();
+    this.isLoading = false;
   }
 
 }

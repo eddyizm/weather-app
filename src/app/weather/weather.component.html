@@ -18,6 +18,9 @@
             Search for the weather
           </button>
         </div>
+        <div *ngIf="isLoading" class="relative">
+          <app-spinner></app-spinner>
+        </div>
       </form>
     </div>
    
@@ -29,7 +32,7 @@
       <h3 class="text-center my-4">{{this.weatherData?.name}}, {{this.weatherData?.sys.country}}</h3>
       <p class="text-center"> <img src="https://openweathermap.org/img/w/{{this.weatherData?.weather[0].icon}}.png" class="img-fluid" alt="Weather image"> </p>
       <p class="text-center">Current weather conditions:<br> {{ this.weatherData?.weather[0].description}} </p>
-      <p class="text-center">Temperature: {{this.weatherData?.main.temp}}F</p>
+      <p class="text-center">Temperature: {{this.weatherData?.main.temp}} (F)</p>
       <p class="text-center">Humidity: {{this.weatherData?.main.humidity}}</p>
     </div>
   </div>
